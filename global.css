@@ -1,0 +1,84 @@
+/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cores Semânticas - Light Mode (Padrão) */
+    --color-bg-primary: #FAF7F2;
+    --color-bg-surface: #FFFFFF;
+    --color-text-primary: #111111;
+    --color-text-secondary: #444444;
+    --color-text-muted: #666666;
+    --color-accent: #006D4E;
+    --color-accent-subtle: #1B3A2E;
+    --color-emotion: #9A7CA7;
+    --color-border: #E0DDD6;
+    --color-focus-ring: #006D4E;
+
+    /* Sombras - Light Mode */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    /* Cores Semânticas - Dark Mode */
+    --color-bg-primary: #111111;
+    --color-bg-surface: #1C1C1C;
+    --color-text-primary: #FAF7F2;
+    --color-text-secondary: #C0C0C0;
+    --color-text-muted: #8A8A8A;
+    --color-accent: #006D4E;
+    --color-accent-subtle: #1B3A2E;
+    --color-emotion: #9A7CA7;
+    --color-border: #2A2A2A;
+    --color-focus-ring: #006D4E;
+
+    /* Sombras - Dark Mode (Adaptadas para fundos escuros) */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* * Modo Dislexia 
+   * Aplicado globalmente no elemento raiz ou via Zustand provider 
+   */
+  .dyslexia {
+    --font-sans: "OpenDyslexic", "Comic Neue", sans-serif;
+    --font-serif: "OpenDyslexic", "Comic Neue", sans-serif;
+    letter-spacing: 0.03em;
+    line-height: calc(1em + 0.2);
+  }
+
+  .dyslexia a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  /* * Ajuste de Tamanho de Fonte (Acessibilidade do Usuário)
+   * Multiplicadores baseados na preferência. No React Native, o NativeWind 
+   * processa 'rem' baseado na raiz.
+   */
+  .font-size-small {
+    font-size: 14px; /* ~0.9rem equivalente */
+  }
+  .font-size-medium {
+    font-size: 16px; /* 1rem padrão */
+  }
+  .font-size-large {
+    font-size: 19.2px; /* 1.2rem */
+  }
+}
+
+/* * Utilitários específicos do NÓS 
+ * Garantindo transições suaves globais para mudanças de tema
+ */
+@layer utilities {
+  .theme-transition {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+}
